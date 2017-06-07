@@ -1,0 +1,7 @@
+/// Replace [Date] with the date measure
+
+IF (MONTH(TODAY()) =1 OR MONTH(TODAY()) =4 OR MONTH(TODAY()) =7 OR MONTH(TODAY()) =10)=TRUE
+then INT(DATETRUNC('quarter', [Date]) >=  DATEADD('quarter',-5,DATETRUNC('quarter', Today()))
+AND DATETRUNC('quarter', [Date]) <  DATEADD('quarter',-1,DATETRUNC('quarter', Today())))
+ELSE int(DATETRUNC('quarter', [Date]) >=  DATEADD('quarter',-4,DATETRUNC('quarter', Today())) AND DATETRUNC('quarter', [Dispense Date]) < DATETRUNC('quarter', Today()))
+END
